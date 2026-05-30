@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio Style Carousel</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;700&family=Cormorant+Garamond:wght@500;600;700&display=swap');
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,Arial,sans-serif;background:radial-gradient(circle at top left,#111a33 0,#050816 45%),linear-gradient(180deg,#050816,#0b1020);color:#eff6ff}
+    .wrap{max-width:1100px;margin:0 auto;padding:28px}
+    h1{margin:0 0 10px;font-size:clamp(30px,4vw,54px)}
+    p.sub{margin:0 0 22px;color:#a9b9d1;max-width:75ch;line-height:1.7}
+    .controls{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+    .controls button{border:1px solid #24324c;background:#111b2e;color:#eff6ff;padding:10px 14px;border-radius:999px;cursor:pointer;font-weight:700}
+    .controls button.active{background:#67d5ff;color:#07111b;border-color:#67d5ff}
+    .card{border:1px solid #1f2b41;border-radius:24px;overflow:hidden;background:rgba(13,20,36,.84);box-shadow:0 18px 50px rgba(0,0,0,.28)}
+    .hero{height:260px;padding:24px;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden}
+    .hero::after{content:"";position:absolute;inset:auto -60px -60px auto;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.16),transparent 65%);pointer-events:none}
+    .tag{display:inline-flex;align-self:flex-start;padding:7px 10px;border-radius:999px;font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+    .body{padding:22px}
+    .body h2{margin:0 0 8px;font-size:24px}
+    .body p{margin:0;color:#a9b9d1;line-height:1.7}
+    .sample{margin-top:14px;padding-top:14px;border-top:1px solid rgba(255,255,255,.08)}
+    .sample .h{font-size:30px;font-weight:800;line-height:1.05;margin-bottom:4px}
+    .sample .b{font-size:15px;color:#cbd5e1;line-height:1.6}
+    .swatches{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap}
+    .swatches span{width:42px;height:42px;border-radius:12px;border:1px solid rgba(255,255,255,.12)}
+    .note{margin-top:18px;color:#9db0c7;font-size:14px}
+
+    .a .hero{background:radial-gradient(circle at 20% 20%,rgba(125,92,255,.25),transparent 35%),linear-gradient(135deg,#08111f,#0a1830 55%,#0f2f36)}
+    .a .tag{background:#12384b;color:#8df1ff;border:1px solid rgba(141,241,255,.2)}
+    .a .h{font-family:'Space Grotesk',Inter,sans-serif}
+    .a .swatches span:nth-child(1){background:#08111f}.a .swatches span:nth-child(2){background:#0a1830}.a .swatches span:nth-child(3){background:#7d5cff}.a .swatches span:nth-child(4){background:#8df1ff}
+
+    .b .hero{background:radial-gradient(circle at 20% 20%,rgba(255,196,61,.18),transparent 35%),linear-gradient(135deg,#0f1218,#181b22 55%,#2a2418)}
+    .b .tag{background:#3b2d12;color:#ffd27a;border:1px solid rgba(255,210,122,.2)}
+    .b .h{font-family:'Cormorant Garamond',serif;font-size:36px}
+    .b .swatches span:nth-child(1){background:#0f1218}.b .swatches span:nth-child(2){background:#181b22}.b .swatches span:nth-child(3){background:#c98d2c}.b .swatches span:nth-child(4){background:#ffd27a}
+
+    .c .hero{background:radial-gradient(circle at 20% 20%,rgba(58,255,201,.16),transparent 35%),linear-gradient(135deg,#07131a,#0d1a24 55%,#101d2d)}
+    .c .tag{background:#10312c;color:#73ffd1;border:1px solid rgba(115,255,209,.2)}
+    .c .h{font-family:Inter,sans-serif;letter-spacing:-.03em}
+    .c .swatches span:nth-child(1){background:#07131a}.c .swatches span:nth-child(2){background:#0d1a24}.c .swatches span:nth-child(3){background:#73ffd1}.c .swatches span:nth-child(4){background:#5aa9ff}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Style preview, one at a time</h1>
+    <p class="sub">Use the buttons to switch between three original looks. I’ll build your portfolio in the style you choose, then you can send me the details to fill in.</p>
+
+    <div class="controls">
+      <button class="active" onclick="setStyle('a')">Style A</button>
+      <button onclick="setStyle('b')">Style B</button>
+      <button onclick="setStyle('c')">Style C</button>
+    </div>
+
+    <div id="stage" class="card a">
+      <div class="hero">
+        <span class="tag" id="tag">Option A</span>
+      </div>
+      <div class="body">
+        <h2 id="title">Aurora Noir</h2>
+        <p id="desc">Dark cyber look with violet, teal, and electric blue accents. Clean, modern, and technical.</p>
+        <div class="sample"><div class="h" id="fontname">Space Grotesk</div><div class="b" id="samplecopy">Best for a sharp, futuristic cybersecurity profile with a premium feel.</div></div>
+        <div class="swatches" id="swatches"><span></span><span></span><span></span><span></span></div>
+      </div>
+    </div>
+
+    <div class="note">When you are ready, reply with A, B, or C. I’ll then rebuild your actual portfolio in that style.</div>
+  </div>
+
+  <script>
+    const styles = {
+      a: {cls:'a', tag:'Option A', title:'Aurora Noir', desc:'Dark cyber look with violet, teal, and electric blue accents. Clean, modern, and technical.', font:'Space Grotesk', sample:'Best for a sharp, futuristic cybersecurity profile with a premium feel.'},
+      b: {cls:'b', tag:'Option B', title:'Editorial Slate', desc:'Refined and premium with a more storytelling feel. Less neon, more polished.', font:'Cormorant + Inter', sample:'Best if you want a standout look that feels different from generic cyber sites.'},
+      c: {cls:'c', tag:'Option C', title:'Glass Circuit', desc:'Minimal but creative, with glass panels, mint/blue highlights, and a sleek product-like interface.', font:'Inter', sample:'Best for an interactive portfolio that feels modern and versatile.'}
+    };
+
+    function setStyle(key){
+      const s = styles[key];
+      const stage = document.getElementById('stage');
+      stage.className = 'card ' + s.cls;
+      document.getElementById('tag').textContent = s.tag;
+      document.getElementById('title').textContent = s.title;
+      document.getElementById('desc').textContent = s.desc;
+      document.getElementById('fontname').textContent = s.font;
+      document.getElementById('samplecopy').textContent = s.sample;
+      document.querySelectorAll('.controls button').forEach((b, idx)=>b.classList.toggle('active', ['a','b','c'][idx]===key));
+    }
+    window.setStyle = setStyle;
+  </script>
+</body>
+</html>

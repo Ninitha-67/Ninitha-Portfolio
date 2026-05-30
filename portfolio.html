@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ninitha P | Cybersecurity Portfolio</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+    :root{
+      --bg:#07131a;
+      --bg2:#0d1a24;
+      --panel:rgba(13,26,36,.82);
+      --panel2:#102334;
+      --text:#eff6ff;
+      --muted:#aab9ca;
+      --accent:#73ffd1;
+      --accent2:#5aa9ff;
+      --line:#244055;
+      --shadow:0 24px 60px rgba(0,0,0,.3);
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:Inter,Arial,sans-serif;
+      background:
+        radial-gradient(circle at 18% 18%,rgba(115,255,209,.12),transparent 22%),
+        radial-gradient(circle at 82% 0,rgba(90,169,255,.16),transparent 24%),
+        linear-gradient(135deg,var(--bg),#081019 38%,#050b12);
+      color:var(--text);
+      line-height:1.55;
+    }
+    a{color:inherit;text-decoration:none}
+    nav{
+      position:sticky;top:0;z-index:1000;display:flex;justify-content:space-between;align-items:center;
+      padding:16px 8%;background:rgba(7,19,26,.82);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.06)
+    }
+    .logo{font-weight:800;letter-spacing:.03em;font-size:20px;color:var(--accent)}
+    .nav-links{display:flex;gap:18px;flex-wrap:wrap;list-style:none}
+    .nav-links a{font-size:14px;color:#f3f8ff;opacity:.9;position:relative}
+    .nav-links a:after{content:"";position:absolute;left:0;bottom:-4px;width:0;height:2px;background:var(--accent);transition:.2s}
+    .nav-links a:hover:after{width:100%}
+    .hero{
+      min-height:100vh;display:flex;align-items:center;justify-content:space-between;gap:42px;
+      padding:74px 8% 52px;position:relative;overflow:hidden
+    }
+    .hero::before{
+      content:"";position:absolute;inset:0;
+      background:
+        linear-gradient(115deg,rgba(3,8,16,.86),rgba(7,19,26,.46)),
+        radial-gradient(circle at 18% 22%,rgba(115,255,209,.06),transparent 18%),
+        radial-gradient(circle at 82% 14%,rgba(90,169,255,.08),transparent 20%);
+      pointer-events:none;z-index:0
+    }
+    .hero-bg{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+    .hero-bg .layer{position:absolute;background-position:center;background-repeat:no-repeat;background-size:cover;box-shadow:0 20px 80px rgba(0,0,0,.4);filter:contrast(1.08) saturate(1.2) brightness(.78)}
+    .hero-bg .layer::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(3,8,16,.18),rgba(3,8,16,.66));}
+    .hero-bg .layer.one{left:-6%;top:4%;width:42%;height:82%;border-radius:28px;transform:rotate(-2deg);background-image:url('1cd3f0a778a87c579bd8e5859b69a0c8.jpg');animation:floatBg 16s ease-in-out infinite}
+    .hero-bg .layer.two{right:2%;top:10%;width:34%;height:72%;border-radius:28px;transform:rotate(3deg);background-image:url('3f1e77feeddfda15e2059114e46c1d96.jpg');animation:floatBg 18s ease-in-out infinite reverse}
+    .hero-bg .layer.three{left:24%;bottom:-6%;width:52%;height:36%;border-radius:26px;transform:rotate(-1deg);background-image:url('d76927eecf1dd1d53365b0b71aee0e8c.jpg');animation:floatBg 20s ease-in-out infinite}
+    @keyframes floatBg{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-8px) scale(1.02)}}
+    .hero > *{position:relative;z-index:1}
+    .hero-numbers{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0;opacity:.16;filter:blur(.1px)}
+    .hero-numbers span{position:absolute;color:rgba(115,255,209,.22);font-weight:800;letter-spacing:.08em;animation:floatNumber 22s linear infinite;user-select:none;text-shadow:0 0 12px rgba(115,255,209,.08)}
+    .hero-numbers span:nth-child(odd){color:rgba(90,169,255,.18)}
+    @keyframes floatNumber{from{transform:translateY(22vh) translateX(0) scale(.98);opacity:0}12%{opacity:.55}to{transform:translateY(-125vh) translateX(30px) scale(1.02);opacity:0}}
+    .hero-left{flex:1;min-width:0}
+    .hero-right{flex:.72;display:flex;justify-content:center;align-items:center}
+    .hero-title{font-size:clamp(42px,6vw,72px);line-height:1.02;font-weight:800;letter-spacing:-.04em}
+    .hero-title span{color:var(--accent)}
+    .hero-subtitle{margin-top:16px;font-size:clamp(22px,3vw,32px);line-height:1.35;color:#bbfcec;font-weight:600}
+    .hero-description{max-width:760px;margin-top:16px;color:#eef6ff;font-size:16px;line-height:1.8;text-shadow:0 1px 10px rgba(0,0,0,.4)}
+    .hero-buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+    .btn{display:inline-block;border:none;cursor:pointer;padding:13px 20px;border-radius:14px;font-size:14px;font-weight:700;transition:.2s;background:linear-gradient(135deg,var(--accent2),#7f8cff);color:#fff;box-shadow:0 10px 30px rgba(90,169,255,.24)}
+    .btn.secondary{background:transparent;border:1px solid var(--line);box-shadow:none}
+    .btn:hover{transform:translateY(-3px)}
+    .profile-card{width:min(100%,360px);aspect-ratio:1/1;background:linear-gradient(180deg,rgba(12,23,36,.82),rgba(8,16,25,.9));border:1px solid rgba(255,255,255,.06);border-radius:28px;box-shadow:var(--shadow);position:relative;overflow:hidden;display:grid;place-items:center;padding:24px}
+    .profile-card:before{content:"";position:absolute;inset:-30% auto auto -20%;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(115,255,209,.22),transparent 66%)}
+    .profile-card:after{content:"";position:absolute;inset:auto -15% -20% auto;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle,rgba(90,169,255,.18),transparent 66%)}
+    .profile-badge{width:182px;height:182px;border-radius:34px;background:linear-gradient(135deg,#0c1823,#11283a);border:1px solid rgba(115,255,209,.22);display:grid;place-items:center;box-shadow:0 18px 35px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.05);position:relative;z-index:1}
+    .profile-badge span{font-size:72px;font-weight:800;letter-spacing:-.06em;color:var(--accent)}
+    .profile-meta{display:none}
+    section{padding:70px 8%}
+    .section-title{font-size:38px;text-align:center;margin-bottom:18px;letter-spacing:-.03em}
+    .section-subtitle{text-align:center;color:var(--muted);max-width:860px;margin:0 auto 28px;line-height:1.75}
+    .panel-grid,.projects-grid,.cert-grid,.two-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:18px}
+    .glass{background:var(--panel);border:1px solid rgba(255,255,255,.06);border-radius:22px;box-shadow:var(--shadow);padding:22px}
+    .glass h3{margin-bottom:10px;font-size:18px;color:#dffef4}
+    .glass p,.glass li{color:var(--muted);line-height:1.8}
+    .tagrow{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+    .tag{padding:8px 11px;border-radius:999px;background:#0f2230;border:1px solid rgba(115,255,209,.14);font-size:13px;color:#e8ffff}
+    .timeline{display:grid;gap:14px}
+    .timeline-item{background:var(--panel);border:1px solid rgba(255,255,255,.06);border-radius:20px;padding:20px;box-shadow:var(--shadow)}
+    .timeline-item .label{display:inline-block;margin-bottom:10px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+    .project-card,.cert-card,.edu-card,.contact-card{background:var(--panel);border:1px solid rgba(255,255,255,.06);border-radius:20px;padding:22px;box-shadow:var(--shadow)}
+    .project-card h3,.cert-card h3,.edu-card h3,.contact-card h3{font-size:19px;margin-bottom:10px}
+    .project-card p,.cert-card p,.edu-card p,.contact-card p{color:var(--muted);line-height:1.8}
+    .project-links{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+    .project-links a{padding:9px 12px;border-radius:10px;background:#0d1a24;border:1px solid rgba(255,255,255,.08);font-size:13px}
+    .project-links a:hover{border-color:var(--accent2)}
+    .mini-note{color:#b8d5de;font-size:13px;margin-top:12px}
+    .education-section{background:linear-gradient(180deg,rgba(10,20,31,.35),rgba(7,19,26,.18))}
+    footer{padding:28px 8%;text-align:center;color:#92a4b4;border-top:1px solid rgba(255,255,255,.06)}
+    @media (max-width: 860px){
+      nav{padding:14px 18px;flex-direction:column;gap:12px}
+      .hero{padding:54px 18px 40px;flex-direction:column;text-align:center;min-height:auto}
+      .hero-right{width:100%}
+      .hero-description{margin-left:auto;margin-right:auto}
+      .hero-buttons{justify-content:center}
+      .profile-card{max-width:340px}
+      .section-title{font-size:32px}
+      section{padding:58px 18px}
+      .panel-grid,.projects-grid,.cert-grid,.two-grid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">Ninitha P</div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#certifications">Certifications</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <header class="hero">
+      <div class="hero-bg" aria-hidden="true">
+        <div class="layer one"></div>
+        <div class="layer two"></div>
+        <div class="layer three"></div>
+      </div>
+      <div class="hero-numbers" aria-hidden="true">
+        <span style="left:5%;top:85%;animation-delay:0s">101101</span>
+        <span style="left:14%;top:92%;animation-delay:-4s">0x1F</span>
+        <span style="left:24%;top:88%;animation-delay:-8s">MITRE</span>
+        <span style="left:36%;top:96%;animation-delay:-12s">CVE-2026</span>
+        <span style="left:48%;top:90%;animation-delay:-2s">443</span>
+        <span style="left:59%;top:94%;animation-delay:-6s">10.0.0.1</span>
+        <span style="left:69%;top:88%;animation-delay:-10s">SOC</span>
+        <span style="left:79%;top:96%;animation-delay:-14s">PII</span>
+        <span style="left:88%;top:90%;animation-delay:-1s">TLS</span>
+        <span style="left:93%;top:86%;animation-delay:-5s">CTI</span>
+      </div>
+      <div class="hero-left">
+        <div class="hero-title">Ninitha <span>P</span></div>
+        <div class="hero-subtitle">Cybersecurity Professional | SOC | Threat Intelligence | GRC | Vulnerability Research</div>
+        <div class="hero-description">BCA student specializing in Cybersecurity, Ethical Hacking & Digital Forensics with hands-on experience in SOC operations, threat research, vulnerability assessment, and compliance. Passionate about defensive security, threat intelligence, and building secure systems.</div>
+        <div class="hero-buttons">
+          <a class="btn" href="#projects">View Projects</a>
+          <a class="btn secondary" href="Ninitha_P_Cybersecurity_Resume.pdf">Download Resume</a>
+          <a class="btn secondary" href="#contact">Contact Me</a>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="profile-card">
+          <div class="profile-badge"><span>NP</span></div>
+          <div class="profile-meta"><span>Bengaluru, India</span><span>9.4 CGPA</span><span>Cybersecurity</span></div>
+        </div>
+      </div>
+    </header>
+
+    <section id="about">
+      <h2 class="section-title">About Me</h2>
+      <p class="section-subtitle">Cybersecurity professional pursuing BCA in Cybersecurity, Ethical Hacking & Digital Forensics with practical experience across SOC monitoring, threat intelligence, vulnerability assessment, OSINT, and GRC compliance.</p>
+      <div class="glass" style="max-width:980px;margin:0 auto;text-align:center">
+        I specialize in:
+        <div class="tagrow" style="justify-content:center;margin-top:14px">
+          <span class="tag">SOC monitoring and alert analysis</span>
+          <span class="tag">Threat intelligence and OSINT investigations</span>
+          <span class="tag">Vulnerability assessment and CVE mapping</span>
+          <span class="tag">ISO 27001 and GDPR documentation</span>
+          <span class="tag">Web and API security testing</span>
+          <span class="tag">Network security and attack surface analysis</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2 class="section-title">Core Competencies</h2>
+      <div class="panel-grid">
+        <div class="glass"><h3>Security Operations</h3><div class="tagrow"><span class="tag">SOC Monitoring & Alert Analysis</span><span class="tag">Threat Intelligence & OSINT</span><span class="tag">Log Analysis & Incident Support</span><span class="tag">Security Event Correlation</span></div></div>
+        <div class="glass"><h3>Vulnerability Management</h3><div class="tagrow"><span class="tag">Vulnerability Assessment & Scanning</span><span class="tag">CVE Research & Mapping</span><span class="tag">Penetration Testing Support</span><span class="tag">Risk Assessment & Prioritization</span></div></div>
+        <div class="glass"><h3>Governance & Compliance</h3><div class="tagrow"><span class="tag">ISO 27001 Implementation</span><span class="tag">GDPR Compliance</span><span class="tag">Risk Assessment & Control Mapping</span><span class="tag">Security Policy Documentation</span></div></div>
+        <div class="glass"><h3>Technical Skills</h3><div class="tagrow"><span class="tag">Network Security Analysis</span><span class="tag">Web & API Security Testing</span><span class="tag">Root Cause Analysis</span><span class="tag">Security Tool Administration</span></div></div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <h2 class="section-title">Work Experience</h2>
+      <div class="timeline">
+        <div class="timeline-item"><span class="label">ZecurX Cybersecurity Pvt Ltd | Oct 2025 – Apr 2026</span><h3>Cybersecurity Researcher & Developer</h3><p>Conducted in-depth research on 10+ attack vectors and emerging threat landscapes, identifying critical security risks and recommending strategic mitigation approaches. Authored structured security reports and internal advisories supporting compliance initiatives and organizational risk strategy. Mapped CVEs to organizational risk profiles and contributed to vulnerability advisory documentation. Supported security policy review activities and prepared comprehensive risk assessment summaries aligned with industry standards.</p></div>
+        <div class="timeline-item"><span class="label">InLighnX Global Pvt Ltd | Jun 2025 – Aug 2025</span><h3>Offensive Cybersecurity Intern</h3><p>Performed network reconnaissance, port scanning, and attack surface mapping using Nmap and Metasploit in controlled lab environments. Assisted in vulnerability research and penetration testing across diverse systems and applications, identifying and documenting 8+ security vulnerabilities. Mapped identified vulnerabilities to CVEs and prepared detailed remediation-focused reports for stakeholder review.</p></div>
+        <div class="timeline-item"><span class="label">Corizo | Dec 2023 – Jan 2024</span><h3>Cybersecurity Intern</h3><p>Conducted vulnerability assessments in simulated enterprise environments. Documented security findings and provided actionable mitigation recommendations. Supported security analysis workflows and incident follow-up tracking.</p></div>
+        <div class="timeline-item"><span class="label">TCS iON | Nov 2025 – Jan 2026</span><h3>Industry Internship - Securing a Vulnerable Web Application</h3><p>Completed a 135-hour project focused on comprehensive web application security assessment. Conducted vulnerability identification, exploitation analysis, and remediation planning. Gained practical experience in OWASP Top 10 vulnerabilities and secure coding practices.</p></div>
+        <div class="timeline-item"><span class="label">IBM Virtual Internship | Jan 2026 – Mar 2026</span><h3>Website Vulnerability Scanner Development</h3><p>Developed an automated website vulnerability scanning solution. Implemented security assessment workflows and reporting mechanisms. Enhanced understanding of web application security testing methodologies.</p></div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2 class="section-title">Key Projects</h2>
+      <div class="projects-grid">
+        <div class="project-card"><h3>AIDER — Advanced Intrusion Detection & System Monitoring Tool</h3><p>Developed Unix-based tool for real-time process monitoring and anomalous activity detection. Implemented IDS/IPS-style monitoring workflows enabling continuous system surveillance. Created automated alerting mechanisms for timely threat reporting and response.</p><div class="project-links"><a href="#contact">Discuss</a></div></div>
+        <div class="project-card"><h3>NetRecon — Network Reconnaissance Tool</h3><p>Automated live host detection, port discovery, and service identification using Nmap. Produced structured scan outputs with risk-ranked findings similar to professional vulnerability assessment workflows. Integrated reporting features for streamlined security analysis.</p><div class="project-links"><a href="#contact">Discuss</a></div></div>
+        <div class="project-card"><h3>ISO/IEC 27001 Risk Register & Statement of Applicability</h3><p>Designed comprehensive ISMS risk register and Statement of Applicability in Excel. Conducted structured risk assessment using likelihood × impact methodology. Mapped security controls to ISO 27001 Annex A requirements.</p><div class="project-links"><a href="#contact">Discuss</a></div></div>
+        <div class="project-card"><h3>QRPhish — Phishing Simulation Toolkit</h3><p>Developed QR-code-based phishing simulation tool for security awareness training programs. Modeled real-world social engineering attack vectors to enhance organizational readiness.</p><div class="project-links"><a href="#contact">Discuss</a></div></div>
+        <div class="project-card"><h3>ObfusPro — Malware Analysis Research Toolkit</h3><p>Built controlled obfuscation research toolkit exploring XOR and Base64 encoding techniques. Enhanced understanding of malware analysis and reverse engineering concepts.</p><div class="project-links"><a href="#contact">Discuss</a></div></div>
+      </div>
+    </section>
+
+    <section id="certifications" class="education-section">
+      <h2 class="section-title">Certifications</h2>
+      <div class="cert-grid">
+        <div class="cert-card"><h3>2026</h3><p>ISO/IEC 27001:2022 Information Security Associate<br/>Certified Junior SOC Analyst (JSOC)<br/>Certified Junior GRC Analyst (JGA)<br/>Certified Professional Penetration Tester (CPPT)<br/>Certified Junior API Hacker (CAPIJ)<br/>Certified Junior DevOps Engineer (JDE)<br/>Certified Junior Vibe Pentester (JVP)<br/>GDPR & Compliance Foundation</p></div>
+        <div class="cert-card"><h3>2025</h3><p>Google Cybersecurity Professional Certificate<br/>Certified Cybersecurity Educator Professional (CCEP)</p></div>
+        <div class="cert-card"><h3>2024</h3><p>Ethical Hacking Essentials (EHE)<br/>Cisco Network Security</p></div>
+        <div class="cert-card"><h3>2023</h3><p>Fundamentals of Cybersecurity</p></div>
+      </div>
+    </section>
+
+    <section class="education-section">
+      <h2 class="section-title">Education & Achievements</h2>
+      <div class="two-grid">
+        <div class="edu-card"><h3>Education</h3><p><b>Bachelor of Computer Applications</b><br/>Cybersecurity, Ethical Hacking & Digital Forensics<br/>Yenepoya University, Bengaluru | 2023 – 2026<br/><b>CGPA: 9.4/10</b> (till 5th Semester)</p><p style="margin-top:12px"><b>Higher Secondary Education</b><br/>MSS Public School, Calicut, Kerala | 2019 – 2021<br/><b>80%</b></p><p style="margin-top:12px"><b>SSLC</b><br/>Sacred Heart HSS, Kannur, Kerala | 2018 – 2019<br/><b>99%</b></p></div>
+        <div class="edu-card"><h3>Achievements</h3><p>Top 10 Finalist — IBM National Hackathon 2026<br/>1st Prize — Enigma Project, Yeniot Tech 2025<br/>1st Prize — Cybersecurity Poster Presentation, IBM ICE Day 2024<br/>2nd Prize — Technical Paper Presentation, IBM ICE Day 2025<br/>5th Rank — Triada CTF 2025</p></div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2 class="section-title">Contact</h2>
+      <div class="contact-card" style="max-width:820px;margin:0 auto;text-align:center">
+        <h3>Open for Opportunities</h3>
+        <p>I'm actively seeking opportunities in SOC, CTI, Vulnerability Analysis & Research, GRC & Compliance, and Security Research & Documentation.</p>
+        <p style="margin-top:14px"><a href="mailto:ninithanini232@gmail.com">ninithanini232@gmail.com</a> · +91 8590296706 · <a href="https://linkedin.com/in/ninithap" target="_blank">LinkedIn</a> · <a href="https://github.com/Ninitha-67" target="_blank">GitHub</a> · Bengaluru, India</p>
+        <div class="mini-note">Interested in referrals and collaborations in cybersecurity research and defensive security.</div>
+      </div>
+    </section>
+
+    <footer>Cybersecurity portfolio for Ninitha P.</footer>
+  </main>
+</body>
+</html>
