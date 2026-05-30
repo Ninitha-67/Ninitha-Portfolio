@@ -1,1 +1,5 @@
 .appdeploy
+*.pdf
+*.docx
+*.jpg
+desktop.ini

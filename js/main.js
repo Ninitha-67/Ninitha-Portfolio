@@ -127,7 +127,7 @@ function scrollToSection(sectionId) {
 }
 
 function downloadResume() {
-  window.open('Ninitha_P (1).pdf', '_blank');
+  window.location.hash = '#contact';
 }
 
 // Terminal-style helpers used by hero buttons
