@@ -42,7 +42,7 @@ function erase() {
 }
 setTimeout(type, 1000);
 
-const roles = ['Cybersecurity Researcher', 'SOC Analyst','Junior Penetration Tester', 'Threat Intelligence Researcher', 'GRC Specialist',  'Security Engineer'];
+const roles = ['Cybersecurity Researcher', 'SOC Analyst','Junior Penetration Tester', 'Threat Intelligence Researcher', 'Incident Responder', 'GRC Specialist',  'Security Engineer'];
 let roleIndex = 0;
 const roleElement = document.querySelector('.rotating-roles');
 if (roleElement) {
