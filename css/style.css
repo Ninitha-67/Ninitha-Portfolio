@@ -121,6 +121,7 @@ a{color:inherit;text-decoration:none}
 .content-box{max-width:1100px;margin:0 auto}
 .about-highlight{font-size:18px;line-height:1.85;color:#eef6ff;max-width:980px;margin-bottom:12px}
 .about-tags{margin-top:16px}
+.about-justified{text-align:justify;text-justify:inter-word}
 .split-grid,.grid,.tag-list,.contact-list,.field-grid{display:grid;gap:16px}
 .split-grid{grid-template-columns:repeat(auto-fit,minmax(220px,1fr));margin-top:20px}
 .grid.cards-4{grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
